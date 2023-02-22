@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;900&display=swap" rel="stylesheet">
+
+    <title>Guides</title>
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <p id="back" class="back-button clickable hidden" @click="backBtn">&lt; BACK</p>
+            <div class="main-level">
+                <h2 class="title">Product Guides</h2>
+                <div class="great-grid">
+                    <div v-for="item in main">
+                            <img :src="item.image" :alt="item.title" class="clickable" @click="show(item.title)" />
+                    </div>
+                </div>
+            </div>
+            <div id="Decking" class="hidden">
+                <h2 class="title">Decking</h2>
+                <div class="great-grid grid-2">
+                    <div v-for="deck in decking">
+                        <a :href="deck.link" target="_blank">
+                            <img :src="deck.image" :alt="deck.title" class="clickable" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Railing" class="hidden">
+                <h2 class="title">Railing</h2>
+                <div class="great-grid grid-4">
+                    <div v-for="rail in railing">
+                        <a :href="rail.link" target="_blank">
+                            <img :src="rail.image" :alt="rail.title" class="clickable" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Lighting" class="hidden">
+                <h2 class="title">Lighting</h2>
+                <div class="great-grid">
+                    <div v-for="light in lighting">
+                        <a :href="light.link" target="_blank">
+                            <img :src="light.image" :alt="light.title" class="clickable" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    main: [
+                        {
+                            id: 1,
+                            title: 'Decking',
+                            link: 'Decking',
+                            image: 'https://decksdirect.com/media/wysiwyg/decking_thumbnail_DD.jpg'
+                        },
+                        {
+                            id: 2,
+                            title: 'Railing',
+                            link: 'Railing',
+                            image: 'https://decksdirect.com/media/wysiwyg/railing_thumbnail_DD.jpg'
+                        },
+                        {
+                            id: 3,
+                            title: 'Lighting',
+                            link: 'Lighting',
+                            image: 'https://decksdirect.com/media/wysiwyg/lighting_thumbnail_DD.jpg'
+                        }
+                    ],
+                    decking:[
+                        {
+                            id: 0,
+                            title: 'Trex',
+                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Decking-PDF.pdf',
+                            image: 'https://decksdirect.com/media/wysiwyg/Trex_decking_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 1,
+                            title: 'TimberTech',
+                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            image: 'https://decksdirect.com/media/wysiwyg/Timbertech_decking_thumbnail_DD.jpg',
+                        },
+                    ],
+                    railing:[
+                        {
+                            id: 0,
+                            title: 'Afco',
+                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Decking-PDF.pdf',
+                            image: 'https://decksdirect.com/media/wysiwyg/AFCO_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 1,
+                            title: 'Feeney',
+                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            image: 'https://decksdirect.com/media/wysiwyg/Feeney_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 2,
+                            title: 'Fortress',
+                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            image: 'https://decksdirect.com/media/wysiwyg/Fortress_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 3,
+                            title: 'Keylink',
+                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            image: 'https://decksdirect.com/media/wysiwyg/Key-Link_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 4,
+                            title: 'TimberTech',
+                            link:  'https://www.decksdirect.com/documentation/Timbertech_railing_thumbnail_DD.jpg',
+                            image: 'https://decksdirect.com/media/wysiwyg/Timbertech_railing_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 5,
+                            title: 'Trex',
+                            link:  'https://www.decksdirect.com/documentation/Trex_railing_thumbnail_DD.jpg',
+                            image: 'https://decksdirect.com/media/wysiwyg/Trex_railing_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 6,
+                            title: 'Westbury',
+                            link:  'https://www.decksdirect.com/documentation/Westbury_thumbnail_DD.jpg',
+                            image: 'https://decksdirect.com/media/wysiwyg/Westbury_thumbnail_DD.jpg',
+                        },
+                    ],
+                    lighting:[
+                        {
+                            id: 0,
+                            title: 'Coming Soon',
+                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Decking-PDF.pdf',
+                            image: 'https://via.placeholder.com/255/?text=Coming+Soon',
+                        },
+                        {
+                            id: 1,
+                            title: 'Coming Soon',
+                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            image: 'https://via.placeholder.com/255/?text=Coming+Soon',
+                        },
+                        {
+                            id: 2,
+                            title: 'Coming Soon',
+                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            image: 'https://via.placeholder.com/255/?text=Coming+Soon',
+                        },
+                    ]
+                }
+            },
+            methods:{
+                show(id){
+                    let el = document.getElementById(id);
+                    document.querySelector('.main-level').classList.add('hidden');
+                    el.classList.add('show');
+                    el.classList.remove('hidden');
+                    document.getElementById('back').classList.remove('hidden');
+                },
+                backBtn(){
+                    document.getElementById('back').classList.add('hidden');
+                    document.querySelector('.main-level').classList.remove('hidden');
+                    document.querySelector('.show').classList.add('hidden');
+                    document.querySelector('.show').classList.remove('show');
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
