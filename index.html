@@ -26,7 +26,7 @@
             </div>
             <div id="Decking" class="hidden">
                 <h2 class="title">Decking</h2>
-                <div class="great-grid grid-2">
+                <div class="great-grid grid-4">
                     <div v-for="deck in decking">
                         <a :href="deck.link" target="_blank">
                             <img :src="deck.image" :alt="deck.title" class="clickable" />
@@ -38,9 +38,10 @@
                 <h2 class="title">Railing</h2>
                 <div class="great-grid grid-4">
                     <div v-for="rail in railing">
-                        <a :href="rail.link" target="_blank">
+                        <a v-if="rail.active" :href="rail.link" target="_blank">
                             <img :src="rail.image" :alt="rail.title" class="clickable" />
                         </a>
+                        <img v-else :src="rail.image" :alt="rail.title" class="faded" />
                     </div>
                 </div>
             </div>
@@ -86,59 +87,85 @@
                     decking:[
                         {
                             id: 0,
-                            title: 'Trex',
-                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Decking-PDF.pdf',
-                            image: 'https://decksdirect.com/media/wysiwyg/Trex_decking_thumbnail_DD.jpg',
+                            title: 'DecksDirect Color Guide',
+                            link:  'https://www.decksdirect.com/documentation/DD-DecksDirect-Decking-Color-Guide.pdf',
+                            image: 'https://decksdirect.com/media/wysiwyg/decksdirect-decking-color-guide_thumbnail_DD.jpg',
                         },
                         {
                             id: 1,
-                            title: 'TimberTech',
-                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            title: 'TimberTech Decking Color Guide',
+                            link:  'https://www.decksdirect.com/documentation/DD-TimberTech-Decking-Color-Guide.pdf',
+                            image: 'https://decksdirect.com/media/wysiwyg/timbertech-decking-color-guide_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 2,
+                            title: 'TimberTech Decking Product Guide',
+                            link:  'https://www.decksdirect.com/documentation/DD-TimberTech-Decking-Product-Guide.pdf',
                             image: 'https://decksdirect.com/media/wysiwyg/Timbertech_decking_thumbnail_DD.jpg',
                         },
+                        {
+                            id: 3,
+                            title: 'Trex Decking Product Guide',
+                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Decking-Product-Guide.pdf',
+                            image: 'https://decksdirect.com/media/wysiwyg/Trex_decking_thumbnail_DD.jpg',
+                        },
+                        {
+                            id: 4,
+                            title: 'Trex Decking Color Guide',
+                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Decking-Color-Guide.pdf',
+                            image: 'https://decksdirect.com/media/wysiwyg/trex-decking-color-guide_thumbnail_DD.jpg',
+                        },
+
                     ],
                     railing:[
                         {
                             id: 0,
                             title: 'Afco',
-                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Decking-PDF.pdf',
+                            link:  'https://www.decksdirect.com/documentation/DD-AFCO-Railing-Product-Guide.pdf',
                             image: 'https://decksdirect.com/media/wysiwyg/AFCO_thumbnail_DD.jpg',
+                            active: true
                         },
                         {
                             id: 1,
                             title: 'Feeney',
-                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            link:  'https://www.decksdirect.com/documentation/DD-Feeney-Railing-Product-Guide.pdf',
                             image: 'https://decksdirect.com/media/wysiwyg/Feeney_thumbnail_DD.jpg',
+                            active: true
                         },
                         {
                             id: 2,
                             title: 'Fortress',
-                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            link:  '',
                             image: 'https://decksdirect.com/media/wysiwyg/Fortress_thumbnail_DD.jpg',
+                            active: false
                         },
                         {
                             id: 3,
                             title: 'Keylink',
-                            link:  'https://www.decksdirect.com/documentation/Timbertech_decking_thumbnail_DD.jpg',
+                            link:  'https://www.decksdirect.com/documentation/DD-Key-Link-Railing-Product-Guide.pdf',
                             image: 'https://decksdirect.com/media/wysiwyg/Key-Link_thumbnail_DD.jpg',
+                            active: true
                         },
                         {
                             id: 4,
                             title: 'TimberTech',
-                            link:  'https://www.decksdirect.com/documentation/Timbertech_railing_thumbnail_DD.jpg',
+                            link:  '',
                             image: 'https://decksdirect.com/media/wysiwyg/Timbertech_railing_thumbnail_DD.jpg',
+                            active: false
                         },
                         {
                             id: 5,
                             title: 'Trex',
-                            link:  'https://www.decksdirect.com/documentation/Trex_railing_thumbnail_DD.jpg',
+                            link:  'https://www.decksdirect.com/documentation/DD-Trex-Railing-Product-Guide.pdf',
                             image: 'https://decksdirect.com/media/wysiwyg/Trex_railing_thumbnail_DD.jpg',
+                            active: true
                         },
                         {
                             id: 6,
                             title: 'Westbury',
-                            link:  'https://www.decksdirect.com/documentation/Westbury_thumbnail_DD.jpg',
+                            link:  '',
                             image: 'https://decksdirect.com/media/wysiwyg/Westbury_thumbnail_DD.jpg',
+                            active: false
                         },
                     ],
                     lighting:[
